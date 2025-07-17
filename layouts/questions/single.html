@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  <p>Asked by <a href="/users/{{ .Params.author | urlize }}">{{ .Params.author }}</a></p>
+  <p>Tags: 
+    {{ range .Params.tags }}
+      <span>{{ . }}</span>
+    {{ end }}
+  </p>
+  <div class="question-body">
+    {{ .Content }}
+  </div>
+
+  <hr>
+  <h2>💬 Answers</h2>
+  {{ $answers := .Resources.ByType "page" }}
+  {{ range sort $answers ".Params.votes" "desc" }}
+    <div class="answer">
+      <p><strong>{{ .Params.author }}</strong> ({{ .Params.votes }} votes)</p>
+      {{ .Content }}
+    </div>
+  {{ end }}
+</article>
+{{ end }}

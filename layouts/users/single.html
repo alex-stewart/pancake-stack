@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Params.bio }}</p>
+  <p>Reputation: {{ .Params.reputation }}</p>
+  <p>Badges:
+    {{ range .Params.badges }}
+      <span>{{ . }}</span>
+    {{ end }}
+  </p>
+
+  <h2>📖 Questions by {{ .Title }}</h2>
+  <ul>
+    {{ range where .Site.RegularPages "Section" "questions" }}
+      {{ if eq .Params.author $.Title }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    {{ end }}
+  </ul>
+
+  <h2>📝 Answers by {{ .Title }}</h2>
+  <ul>
+    {{ range where .Site.RegularPages "Section" "questions" }}
+      {{ range .Resources.ByType "page" }}
+        {{ if eq .Params.author $.Title }}
+          <li><a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a></li>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

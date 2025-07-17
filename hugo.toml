@@ -1,0 +1,4 @@
+baseURL = "https://alex-stewart.github.io/pancake-stack/"
+languageCode = "en-gb"
+title = "Pancake Stack"
+theme = "ananke"
