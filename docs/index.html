@@ -4,7 +4,7 @@
 	<meta name="generator" content="Hugo 0.148.1">
   <meta charset="UTF-8">
   <title>Pancake Stack</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
   <div class="container">
@@ -12,24 +12,52 @@
 <h1>🔥 Hot Questions</h1>
 <ul class="question-list">
   
-    <li>
-      <a href="/pancake-stack/questions/how-to-center-div/">How do I center a div?</a>
-      <p class="question-meta">
-        Asked by <a href="/users/bob">bob</a>
-      </p>
-      <p class="tags">
-        
-          <span>css</span>
-        
-          <span>frontend</span>
-        
-      </p>
+    <li class="question-row">
       
-      <p>0 answers</p>
+      
+      <div class="votes-col">
+        <div class="votes">0</div>
+        <div class="votes-label">votes</div>
+      </div>
+      
+      
+      <div class="summary-col">
+        <a class="question-title" href="./questions/how-to-center-div/">How do I center a div?</a>
+        <div class="question-meta">
+          <span>by bob</span>
+          <span class="tags">
+            
+              <span class="tag">css</span>
+            
+              <span class="tag">frontend</span>
+            
+          </span>
+        </div>
+      </div>
+      
+      
+      <div class="answers-col">
+        <div class="answers">0</div>
+        <div class="answers-label">answers</div>
+      </div>
+      
     </li>
   
 </ul>
 
   </div>
+
+  
+  <script src="./js/jdenticon.min.js"></script>
+  <script>
+    jdenticon.config = {
+      hues: [220],
+      lightness: { color: [0.4, 0.8], grayscale: [0.3, 0.9] },
+      saturation: { color: 0.5, grayscale: 0.0 },
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      jdenticon();
+    });
+  </script>
 </body>
 </html>
