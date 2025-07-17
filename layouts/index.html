@@ -1,23 +1,35 @@
 {{ define "main" }}
 <h1>🔥 Hot Questions</h1>
 <ul class="question-list">
-    {{ range where .Site.RegularPages "Section" "questions" }}
-    <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <p class="question-meta">
-        <div class="user">
-            <svg data-jdenticon-value="{{ .Params.author }}" width="40" height="40"></svg>
-            <span>Asked by {{ .Params.author }}</span>
-        </div>
-        </p>
-        <p class="tags">
+  {{ range where .Site.RegularPages "Section" "questions" }}
+    <li class="question-row">
+      
+      <!-- Votes Column -->
+      <div class="votes-col">
+        <div class="votes">{{ mul (len (where .Pages "Kind" "page")) 3 }}</div>
+        <div class="votes-label">votes</div>
+      </div>
+      
+      <!-- Question Summary -->
+      <div class="summary-col">
+        <a class="question-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <div class="question-meta">
+          <span>by {{ .Params.author }}</span>
+          <span class="tags">
             {{ range .Params.tags }}
-            <span>{{ . }}</span>
+              <span class="tag">{{ . }}</span>
             {{ end }}
-        </p>
-        {{/* Count answers in the bundle (child pages) */}}
-        <p>{{ len (where .Pages "Kind" "page") }} answers</p>
+          </span>
+        </div>
+      </div>
+      
+      <!-- Answer Count -->
+      <div class="answers-col">
+        <div class="answers">{{ len (where .Pages "Kind" "page") }}</div>
+        <div class="answers-label">answers</div>
+      </div>
+      
     </li>
-    {{ end }}
+  {{ end }}
 </ul>
 {{ end }}
