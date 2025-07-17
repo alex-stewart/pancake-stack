@@ -9,33 +9,54 @@
   <div class="container">
     
 <article>
-  <h1>How do I center a div?</h1>
-  <p>Asked by <a href="../../users/bob">bob</a></p>
-  <p>Tags: 
-    
-      <span>css</span>
-    
-      <span>frontend</span>
-    
-  </p>
-  <div class="question-body">
-    <p>I’ve tried margin: auto; and flexbox but my div keeps escaping into the void.<br>
+    <h1>How do I center a div?</h1>
+    <div class="user">
+        <svg data-jdenticon-value="bob" width="40" height="40"></svg>
+        <span>Asked by bob</span>
+    </div>
+    <p>Tags:
+        
+        <span>css</span>
+        
+        <span>frontend</span>
+        
+    </p>
+    <div class="question-body">
+        <p>I’ve tried margin: auto; and flexbox but my div keeps escaping into the void.<br>
 How do I center it? Or should I center myself instead?</p>
 
-  </div>
-
-  <hr>
-  <h2>💬 Answers</h2>
-  
-  
-    <div class="answer">
-      <p><strong>alice</strong> (420 votes)</p>
-      <p>Have you considered sacrificing a goat to the CSS gods? Works 60% of the time.</p>
-
     </div>
-  
+
+    <hr>
+    <h2>💬 Answers</h2>
+    
+    
+    <div class="answer">
+        <div class="user">
+            <svg data-jdenticon-value="alice" width="30" height="30"></svg>
+            <span>alice</span>
+        </div>
+        <div class="answer-body">
+            <p>Have you considered sacrificing a goat to the CSS gods? Works 60% of the time.</p>
+
+        </div>
+    </div>
+    
 </article>
 
   </div>
+
+  
+  <script src="../../js/jdenticon.min.js"></script>
+  <script>
+    jdenticon.config = {
+      hues: [220],
+      lightness: { color: [0.4, 0.8], grayscale: [0.3, 0.9] },
+      saturation: { color: 0.5, grayscale: 0.0 },
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      jdenticon();
+    });
+  </script>
 </body>
 </html>

@@ -69,5 +69,18 @@ How do I center it? Or should I center myself instead?</p>
   </div>
 
   </div>
+
+  
+  <script src="../js/jdenticon.min.js"></script>
+  <script>
+    jdenticon.config = {
+      hues: [220],
+      lightness: { color: [0.4, 0.8], grayscale: [0.3, 0.9] },
+      saturation: { color: 0.5, grayscale: 0.0 },
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      jdenticon();
+    });
+  </script>
 </body>
 </html>

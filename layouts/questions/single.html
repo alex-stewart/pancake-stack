@@ -1,24 +1,32 @@
 {{ define "main" }}
 <article>
-  <h1>{{ .Title }}</h1>
-  <p>Asked by <a href="/users/{{ .Params.author | urlize }}">{{ .Params.author }}</a></p>
-  <p>Tags: 
-    {{ range .Params.tags }}
-      <span>{{ . }}</span>
-    {{ end }}
-  </p>
-  <div class="question-body">
-    {{ .Content }}
-  </div>
-
-  <hr>
-  <h2>💬 Answers</h2>
-  {{ $answers := .Resources.ByType "page" }}
-  {{ range sort $answers ".Params.votes" "desc" }}
-    <div class="answer">
-      <p><strong>{{ .Params.author }}</strong> ({{ .Params.votes }} votes)</p>
-      {{ .Content }}
+    <h1>{{ .Title }}</h1>
+    <div class="user">
+        <svg data-jdenticon-value="{{ .Params.author }}" width="40" height="40"></svg>
+        <span>Asked by {{ .Params.author }}</span>
     </div>
-  {{ end }}
+    <p>Tags:
+        {{ range .Params.tags }}
+        <span>{{ . }}</span>
+        {{ end }}
+    </p>
+    <div class="question-body">
+        {{ .Content }}
+    </div>
+
+    <hr>
+    <h2>💬 Answers</h2>
+    {{ $answers := .Resources.ByType "page" }}
+    {{ range sort $answers ".Params.votes" "desc" }}
+    <div class="answer">
+        <div class="user">
+            <svg data-jdenticon-value="{{ .Params.author }}" width="30" height="30"></svg>
+            <span>{{ .Params.author }}</span>
+        </div>
+        <div class="answer-body">
+            {{ .Content }}
+        </div>
+    </div>
+    {{ end }}
 </article>
 {{ end }}

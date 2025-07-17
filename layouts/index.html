@@ -1,20 +1,23 @@
 {{ define "main" }}
 <h1>🔥 Hot Questions</h1>
 <ul class="question-list">
-  {{ range where .Site.RegularPages "Section" "questions" }}
+    {{ range where .Site.RegularPages "Section" "questions" }}
     <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <p class="question-meta">
-        Asked by <a href="/users/{{ .Params.author | urlize }}">{{ .Params.author }}</a>
-      </p>
-      <p class="tags">
-        {{ range .Params.tags }}
-          <span>{{ . }}</span>
-        {{ end }}
-      </p>
-      {{/* Count answers in the bundle (child pages) */}}
-      <p>{{ len (where .Pages "Kind" "page") }} answers</p>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <p class="question-meta">
+        <div class="user">
+            <svg data-jdenticon-value="{{ .Params.author }}" width="40" height="40"></svg>
+            <span>Asked by {{ .Params.author }}</span>
+        </div>
+        </p>
+        <p class="tags">
+            {{ range .Params.tags }}
+            <span>{{ . }}</span>
+            {{ end }}
+        </p>
+        {{/* Count answers in the bundle (child pages) */}}
+        <p>{{ len (where .Pages "Kind" "page") }} answers</p>
     </li>
-  {{ end }}
+    {{ end }}
 </ul>
 {{ end }}
